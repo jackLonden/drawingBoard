@@ -17,4 +17,5 @@
    * js/utils.js 工具类 （包括redo,undo时需要的操作队列）
 ***
 如果有什么问题可以[联系我](mailto:1094521382@qq.com)  
-资助小码哥写出更好的代码![捐献给小码哥](http://qr.api.cli.im/qr?data=https%253A%252F%252Fmobilecodec.alipay.com%252Fclient_download.htm%253Fqrcode%253DFKX03313YE5YSRWSOKS3DF&level=H&transparent=false&bgcolor=%23ffffff&forecolor=%23000000&blockpixel=12&marginblock=1&logourl=http%3A%2F%2Foss-cn-hangzhou.aliyuncs.com%2Fpublic-cli%2Ffree%2Fc2425fec16c515700cff9f1f664c6e321492944276.jpg&size=280&kid=cliim&key=8d2df94e52d5c34b161788c11955b777)
+资助小码哥写出更好的代码  
+![捐献给小码哥](http://qr.api.cli.im/qr?data=https%253A%252F%252Fmobilecodec.alipay.com%252Fclient_download.htm%253Fqrcode%253DFKX03313YE5YSRWSOKS3DF&level=H&transparent=false&bgcolor=%23ffffff&forecolor=%23000000&blockpixel=12&marginblock=1&logourl=http%3A%2F%2Foss-cn-hangzhou.aliyuncs.com%2Fpublic-cli%2Ffree%2Fc2425fec16c515700cff9f1f664c6e321492944276.jpg&size=280&kid=cliim&key=8d2df94e52d5c34b161788c11955b777)
