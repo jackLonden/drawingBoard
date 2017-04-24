@@ -3,6 +3,7 @@ html,body{
   height: 100%;
   padding: 0;
   margin: 0;
+  overflow-y: hidden;
 }
 #tool{
   height: 50px;
@@ -129,6 +130,12 @@ html,body{
 }
 .font-size{
   float: left;
+}
+#line-set{
+  display: none;
+}
+#font-set{
+  display: none;
 }
 .center {
   display: -webkit-box;
