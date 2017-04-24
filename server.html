@@ -7,17 +7,64 @@
 <title>画板--老师</title>
 </head>
 <body>
-    <div id="content">
-        <div id='can-holder'>
-            <canvas id='can-back' class='canvas'>
-                
-            </canvas>
-            <canvas id='canvas' class='canvas'>
-                
-            </canvas>
+    <div id='can-holder'>
+        <canvas id='can-back' class='canvas'>
+            
+        </canvas>
+        <canvas id='canvas' class='canvas'>
+        </canvas>
+    </div>
+    <div id='tool' class='clearfix'>
+        <ul class='nav tool' id='drawtool'>
+            <li><a href=""><i class='fa fa-search-plus'></i></a></li>
+            <li><a href=""><i class='fa fa-search-minus'></i></a></li>
+            <li><a href=""><i class='fa fa-paint-brush'></i></a></li>
+            <li><a href=""><i class='fa fa-font'></i></a></li>
+            <li><a href="">/</a></li>
+            <li><a href=""><i class='fa fa-caret-up'></i></a></li>
+            <li><a href=""><i class='fa fa-circle-thin'></i></a></li>
+            <li><a href=""><i class='fa fa-square'></i></a></li>
+        </ul>
+        <ul class='nav tool' id='drawopera'>
+            <li><a href=""><i class='fa fa-reply'></i></a></li>
+            <li><a href=""><i class='fa fa-share'></i></a></li>
+            <li><a href=""><i class='fa fa-eraser'></i></a></li>
+        </ul>
+    </div>
+    <div id='line-set' class='draw-set'>
+        <div>
+            <ul class='nav set-left' id='line-set-left'>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <div class='color-picker'>
+                <table>
+                    <tr>
+                        <td style='width:26px;background-color:#FFF;' rowspan=2></td>
+                        <td style='background-color:#000;'></td>
+                        <td style='background-color:#808080;'></td>
+                        <td style='background-color:#800000;'></td>
+                        <td style='background-color:#F7883A;'></td>
+                        <td style='background-color:#308430;'></td>
+                        <td style='background-color:#385AD3;'></td>
+                        <td style='background-color:#800080;'></td>
+                        <td style='background-color:#009999;'></td>
+                    </tr>
+                    <tr>
+                        <td style='background-color:#FFF;'></td>
+                        <td style='background-color:#C0C0C0;'></td>
+                        <td style='background-color:#FB3838;'></td>
+                        <td style='background-color:#FFFF00;'></td>
+                        <td style='background-color:#99CC00;'></td>
+                        <td style='background-color:#3894E4;'></td>
+                        <td style='background-color:#F31BF3;'></td>
+                        <td style='background-color:#16DCDC;'></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
-    <div id='tool'></div>
     <script src="js/jquery-1.12.3.min.js"></script>
     <script src="js/draw.js"></script>
     <script src='js/server.js'></script>

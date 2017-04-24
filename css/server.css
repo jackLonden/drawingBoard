@@ -4,27 +4,102 @@ html,body{
   padding: 0;
   margin: 0;
 }
-#content{
+#tool{
+  height: 50px;
+  background:#30898C;
+}
+#can-holder{
+  position: relative;
   height: calc(100% - 50px);
   height: -moz-calc(100% - 50px);
   height: -webkit--calc(100% - 50px);
 }
-#tool{
-  height: 50px;
-}
-#can-holder{
-  height: 100%;
-}
 .canvas{
+  position: absolute;
   height: 100%;
   width: 100%;
   background:#6cc;
 }
 #can-back{
+  position: absolute;
   float: left;
   z-index:1;
 }
 #canvas{
   float: left;
   z-index:2;
+}
+.nav{
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+.nav>li{
+  display: inline-block;
+  float: left;
+  list-style: none;
+}
+.nav:after{
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear:both;
+}
+#drawtool{
+  float:left;
+  border-right: 1px solid black;
+}
+.tool a{
+  font-size: 20px;
+  text-decoration: none;
+  color:#FFF;
+  padding: 10px 20px;
+  line-height: 50px;
+}
+.tool a:hover{
+  color:#ccc;
+}
+#drawopera{
+  float:left;
+}
+.clearfix:after{
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear:both;
+}
+#line-set{
+  display: inline-block;
+  z-index: 3;
+}
+#line-set-left{
+  border-right: 1px solid black;
+}
+#line-set-left li{
+  width: 25px;
+  height: 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border:1px solid black;
+  border-radius: 4px 4px;
+}
+#line-set-left li:nth-child(1){
+  background-image: url(../imgs/point.png);
+  background-size: 3px;
+}
+#line-set-left li:nth-child(2){
+  background-image: url(../imgs/point.png);
+  background-size: 5px;
+}
+#line-set-left li:nth-child(3){
+  background-image: url(../imgs/point.png);
+  background-size: 8px;
+}
+.color-picker td{
+  height: 12px;
+  width: 12px;
+  padding: 0;
+  background-color: red;
+  border:1px solid #808080;
+  margin: 1px;
 }
