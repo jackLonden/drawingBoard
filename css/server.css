@@ -109,12 +109,20 @@ html,body{
   background-size: 8px;
 }
 .color-picker td{
+  cursor: pointer;
   height: 12px;
   width: 12px;
   padding: 0;
   background-color: red;
   border:1px solid #808080;
   margin: 1px;
+}
+.color-preview{
+  width:26px !important;
+  background-color:#FFF !important;
+}
+.color-picker td:hover:not(.color-preview){
+  border:1px solid yellow;
 }
 #line-set-right{
   float: left;

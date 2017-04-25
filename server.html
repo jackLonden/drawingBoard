@@ -19,12 +19,12 @@
         <ul class='nav tool' id='drawtool'>
             <li title='放大'><a href=""><i class='fa fa-search-plus'></i></a></li>
             <li title='缩小'><a href=""><i class='fa fa-search-minus'></i></a></li>
-            <li title='画笔'><a href=""><i class='fa fa-paint-brush'></i></a></li>
-            <li title="写字"><a href=""><i class='fa fa-font'></i></a></li>
-            <li title='画直线'><a href="">/</a></li>
-            <li title='三角形'><a href=""><i class='fa fa-caret-up'></i></a></li>
-            <li title='椭圆'><a href=""><i class='fa fa-circle-thin'></i></a></li>
-            <li title='矩形'><a href=""><i class='fa fa-square-o'></i></a></li>
+            <li class='draw' title='画笔'><a href=""><i class='fa fa-paint-brush'></i></a></li>
+            <li class='draw font' title="写字"><a href=""><i class='fa fa-font'></i></a></li>
+            <li class='draw' title='画直线'><a href="">/</a></li>
+            <li class='draw' title='三角形'><a href=""><i class='fa fa-caret-up'></i></a></li>
+            <li class='draw' title='椭圆'><a href=""><i class='fa fa-circle-thin'></i></a></li>
+            <li class='draw' title='矩形'><a href=""><i class='fa fa-square-o'></i></a></li>
         </ul>
         <ul class='nav tool' id='drawopera'>
             <li title='撤销'><a href=""><i class='fa fa-reply'></i></a></li>
@@ -42,7 +42,7 @@
             <div class='color-picker' id='line-set-right'>
                 <table>
                     <tr>
-                        <td style='width:26px;background-color:#FFF;' rowspan=2></td>
+                        <td class='color-preview' rowspan=2></td>
                         <td style='background-color:#000;'></td>
                         <td style='background-color:#808080;'></td>
                         <td style='background-color:#800000;'></td>
@@ -104,7 +104,7 @@
             <div class='color-picker'>
                 <table>
                     <tr>
-                        <td style='width:26px;background-color:#FFF;' rowspan=2></td>
+                        <td class='color-preview' rowspan=2></td>
                         <td style='background-color:#000;'></td>
                         <td style='background-color:#808080;'></td>
                         <td style='background-color:#800000;'></td>
