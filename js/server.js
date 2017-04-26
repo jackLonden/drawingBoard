@@ -32,7 +32,7 @@ $(function() {
                     penStart = true;
                     break;
                 case 'font':
-                	textAreaToggle(x, y);
+                    textAreaToggle(x, y);
                     break;
                 case 'line':
                     ctx.beginPath();
@@ -157,21 +157,21 @@ $(function() {
         }
     });
 
-	//文本域切换
-	function textAreaToggle(x, y){
-		if(fontarea.hasClass('hide')){
-			fontarea.removeClass('hide');
-			fontarea.css({'left':x,'top':y});
-		}else{
-			fontarea.addClass('hide');
-		}
-	}
+    //文本域切换
+    function textAreaToggle(x, y) {
+        if (fontarea.hasClass('hide')) {
+            fontarea.removeClass('hide');
+            fontarea.css({ 'left': x, 'top': y });
+        } else {
+            fontarea.addClass('hide');
+        }
+    }
 
-	//文本域resize时间
-	fontarea.bind('propertychange' ,function(){
-		console.log(dsadsa);
-		console.log(arguments);
-	});
+    //文本域resize时间
+    fontarea.bind('propertychange', function() {
+        console.log(dsadsa);
+        console.log(arguments);
+    });
 
     //设置画笔样式
     function setStyle(brush) {
