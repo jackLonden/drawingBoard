@@ -18,9 +18,28 @@ function CanvasTool(canvasDomId) {
 			return ;
 		}
 	}
-    this.clearCanvas = function(prop) {
+    //画笔初始化样式
+    this.ctx.lineWidth = 1;
+    this.ctx.strokeStyle = '#000';
+    this.ctx.fillStyle = '#000';
+    this.ctx.font      = "20px Consolas,Courier,monospace";
+    this.setStyle = function(prop){
+        if(prop.lineWidth){
+            this.ctx.lineWidth = prop.lineWidth;
+        }
+        if(prop.fillStyle){
+            this.ctx.fillStyle = prop.fillStyle;
+        }
+        if(prop.fontSize){
+            this.ctx.font = prop.fontSize+' Consolas,Courier,monospace';
+        }
+        if(prop.strokeStyle){
+            this.ctx.strokeStyle = prop.strokeStyle;
+        }
+    }
+    this.clear = function(prop) {
 			var width = prop.width || this.canvas.width;
-			var height = prop.height || this.canvas.height;			
+			var height = prop.height || this.canvas.height;	
             this.ctx.clearRect(0, 0, width, height);
 			return {'width':width,'height':height};
         }
@@ -52,7 +71,7 @@ function CanvasTool(canvasDomId) {
 			return {'p1':p1, 'p2':p2, 'p3':p3};
         }
 	function _getPoint(p){
-		var p1;
+		var p1 = [];
 		if(p && p.length==2){
 			p1[0] = parseInt(p[0])||0;
 			p1[1] = parseInt(p[1])||0;
@@ -140,10 +159,18 @@ function CanvasTool(canvasDomId) {
 
     //画矩形
     this.drawRect = function(args) {
-		var p = _getPoint(args.p);
-		var width = args.width||0;
-		var height = args.height||0;
+		var p1 = _getPoint(args.p1);
+        var p2 = _getPoint(args.p2);
+        var p = p1;
+        if(p1[0]>p2[0]){
+            p[0] == p2[0];
+        };
+        if(p1[1]>p2[1]){
+            p[1] == p2[1];
+        }
+		var width = Math.abs(p2[0]-p1[0]);
+		var height = Math.abs(p2[1]-p1[1]);
         this.ctx.strokeRect(p[0], p[1], width, height);
-		return {'p': p, 'width':width, 'height':height};
+		return args;
     }
 }

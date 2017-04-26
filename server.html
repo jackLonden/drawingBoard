@@ -19,12 +19,12 @@
         <ul class='nav tool' id='drawtool'>
             <li title='放大'><a href=""><i class='fa fa-search-plus'></i></a></li>
             <li title='缩小'><a href=""><i class='fa fa-search-minus'></i></a></li>
-            <li class='draw' title='画笔'><a href=""><i class='fa fa-paint-brush'></i></a></li>
-            <li class='draw font' title="写字"><a href=""><i class='fa fa-font'></i></a></li>
-            <li class='draw' title='画直线'><a href="">/</a></li>
-            <li class='draw' title='三角形'><a href=""><i class='fa fa-caret-up'></i></a></li>
-            <li class='draw' title='椭圆'><a href=""><i class='fa fa-circle-thin'></i></a></li>
-            <li class='draw' title='矩形'><a href=""><i class='fa fa-square-o'></i></a></li>
+            <li class='draw' id='pen' title='画笔'><a href=""><i class='fa fa-paint-brush'></i></a></li>
+            <li class='draw font' id='font' title="写字"><a href=""><i class='fa fa-font'></i></a></li>
+            <li class='draw' id='line' title='画直线'><a href="">/</a></li>
+            <li class='draw' id='triangle' title='三角形'><a href=""><i class='fa fa-caret-up'></i></a></li>
+            <li class='draw' id='ellipse' title='椭圆'><a href=""><i class='fa fa-circle-thin'></i></a></li>
+            <li class='draw' id='rect' title='矩形'><a href=""><i class='fa fa-square-o'></i></a></li>
         </ul>
         <ul class='nav tool' id='drawopera'>
             <li title='撤销'><a href=""><i class='fa fa-reply'></i></a></li>
@@ -35,15 +35,15 @@
     <div id='line-set' class='draw-set'>
         <div class='clearfix center'>
             <ul class='nav set-left' id='line-set-left'>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li id='one' class='one line-width-active'></li>
+                <li id='two'></li>
+                <li id='three'></li>
             </ul>
             <div class='color-picker' id='line-set-right'>
                 <table>
                     <tr>
-                        <td class='color-preview' rowspan=2></td>
-                        <td style='background-color:#000;'></td>
+                        <td class='color-preview' id='line-preview' rowspan=2></td>
+                        <td style='background-color:#000;' class='color-picker-active'></td>
                         <td style='background-color:#808080;'></td>
                         <td style='background-color:#800000;'></td>
                         <td style='background-color:#F7883A;'></td>
@@ -82,7 +82,7 @@
                     <option value="">9</option>
                     <option value="">10</option>
                     <option value="">11</option>
-                    <option value="">12</option>
+                    <option value="" selected>12</option>
                     <option value="">13</option>
                     <option value="">14</option>
                     <option value="">15</option>
@@ -101,11 +101,11 @@
                     <option value="">28</option>
                 </select>
             </div>
-            <div class='color-picker'>
+            <div class='color-picker' id='font-color'>
                 <table>
                     <tr>
                         <td class='color-preview' rowspan=2></td>
-                        <td style='background-color:#000;'></td>
+                        <td style='background-color:#000;' class='color-picker-active'></td>
                         <td style='background-color:#808080;'></td>
                         <td style='background-color:#800000;'></td>
                         <td style='background-color:#F7883A;'></td>
@@ -128,6 +128,7 @@
             </div>
         </div>
     </div>
+    <textarea name="" id="fontarea" class='hide' cols="30" rows="10"></textarea>
     <script src="js/jquery-1.12.3.min.js"></script>
     <script src="js/draw.js"></script>
     <script src='js/server.js'></script>
