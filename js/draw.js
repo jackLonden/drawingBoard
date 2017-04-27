@@ -23,54 +23,74 @@ function CanvasTool(canvasDomId) {
     this.ctx.strokeStyle = '#000';
     this.ctx.fillStyle = '#000';
     this.ctx.font = "20px Consolas,Courier,monospace";
+    //设置样式
     this.setStyle = function(prop) {
-        if (prop.lineWidth) {
-            this.ctx.lineWidth = prop.lineWidth;
+            if (prop.lineWidth) {
+                this.ctx.lineWidth = prop.lineWidth;
+            }
+            if (prop.fillStyle) {
+                this.ctx.fillStyle = prop.fillStyle;
+            }
+            if (prop.fontSize) {
+                this.ctx.font = prop.fontSize + ' Consolas,Courier,monospace';
+            }
+            if (prop.strokeStyle) {
+                this.ctx.strokeStyle = prop.strokeStyle;
+            }
         }
-        if (prop.fillStyle) {
-            this.ctx.fillStyle = prop.fillStyle;
-        }
-        if (prop.fontSize) {
-            this.ctx.font = prop.fontSize + ' Consolas,Courier,monospace';
-        }
-        if (prop.strokeStyle) {
-            this.ctx.strokeStyle = prop.strokeStyle;
-        }
-    }
+        //清除画板
     this.clear = function(prop) {
             var width = prop.width || this.canvas.width;
             var height = prop.height || this.canvas.height;
             this.ctx.clearRect(0, 0, width, height);
             return { 'width': width, 'height': height };
         }
-        //写字
-    this.drawText = function(param) {
-            var text = param.text || '默认文字';
-            var p = _getPoint(param.p);
-            var width = param.width || 350;
-            var cols = param.cols || 30;
-            var colspan = param.colspan || 30;
-            var row = 0;
-            for (var i = 0; i < text.length; i = i + cols) {
-                this.ctx.fillText(text.substr(i, cols), p[0], p[1] + row * colspan, width);
-                row++;
+        //写字(根据像素计算换行和绘制)
+    this.drawText = function(textarea, x, y, lineHeight) {
+            var width = textarea.clientWidth;
+            var height = textarea.clientHeight;
+            var text = textarea.value;
+            var lines = [],
+                line = '',
+                len = 0;
+            for (var i = 0; i < text.length; i++) {
+                var char = text.substr(i, 1);
+                line += char;
+                if (char == '\n') {
+                    lines.push(line);
+                    len += line.length;
+                    line = '';
+                } else {
+                    var cwidth = this.ctx.measureText(line).width;
+                    if (cwidth > width) {
+                        lines.push(line.substr(0, line.length - 1));
+                        len += line.length - 1;
+                        line = line.substr(line.length - 1, 1);
+                    }
+                }
             }
-            return { 'text': text, 'p': p, 'width': width, 'cols': cols, 'colspan': colspan };
+            if (len < text.length) {
+                lines.push(text.substr(len));
+            }
+            for (var i in lines) {
+                var text = lines[i];
+                this.ctx.fillText(text, x, y + i * lineHeight, width);
+            }
         }
         //三角形
     this.drawTriangle = function(args) {
-        var p1 = _getPoint(args.p1);
-        var p2 = _getPoint(args.p2);
-        var p3 = _getPoint(args.p3);
-        this.ctx.beginPath();
-        this.ctx.moveTo(p1[0], p1[1]);
-        this.ctx.lineTo(p2[0], p2[1]);
-        this.ctx.lineTo(p3[0], p3[1]);
-        this.ctx.closePath();
-        this.ctx.stroke();
-        return { 'p1': p1, 'p2': p2, 'p3': p3 };
-    }
-
+            var p1 = _getPoint(args.p1);
+            var p2 = _getPoint(args.p2);
+            var p3 = _getPoint(args.p3);
+            this.ctx.beginPath();
+            this.ctx.moveTo(p1[0], p1[1]);
+            this.ctx.lineTo(p2[0], p2[1]);
+            this.ctx.lineTo(p3[0], p3[1]);
+            this.ctx.closePath();
+            this.ctx.stroke();
+            return { 'p1': p1, 'p2': p2, 'p3': p3 };
+        }
+        //获取点
     function _getPoint(p) {
         var p1 = [];
         if (p && p.length == 2) {

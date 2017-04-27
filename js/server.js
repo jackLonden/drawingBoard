@@ -35,8 +35,6 @@ $(function() {
                     textAreaToggle(x, y);
                     break;
                 case 'line':
-                    ctx.beginPath();
-                    ctx.moveTo(x, y);
                     drawData = [
                         [x, y]
                     ];
