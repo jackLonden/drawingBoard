@@ -32,7 +32,18 @@ $(function() {
                     penStart = true;
                     break;
                 case 'font':
-                    textAreaToggle(x, y);
+                    if (fontarea.hasClass('hide')) {
+                        setTextArea();
+                        fontarea.val('');
+                        textAreaShow(x - 1, y - 15);
+                        drawData = [
+                            [x, y]
+                        ];
+                    } else {
+                        var lineHeight = parseInt($('.font-size').val()) * 1.5;
+                        brush2.drawText(fontarea, drawData[0][0], drawData[0][1], lineHeight);
+                        textAreaHide();
+                    }
                     break;
                 case 'line':
                     drawData = [
@@ -155,31 +166,33 @@ $(function() {
         }
     });
 
-    //文本域切换
-    function textAreaToggle(x, y) {
-        if (fontarea.hasClass('hide')) {
-            fontarea.removeClass('hide');
-            fontarea.css({ 'left': x, 'top': y });
-        } else {
-            fontarea.addClass('hide');
-        }
+
+    function textAreaShow(x, y) {
+        fontarea.removeClass('hide');
+        fontarea.css({ 'left': x, 'top': y });
     }
 
-    //文本域resize时间
-    fontarea.bind('propertychange', function() {
-        console.log(dsadsa);
-        console.log(arguments);
-    });
+    function textAreaHide() {
+        fontarea.addClass('hide');
+    }
 
     //设置画笔样式
     function setStyle(brush) {
         var style = {
             'lineWidth': $('.line-width-active').index() * 2,
             'strokeStyle': $('#line-preview').get(0).style.backgroundColor,
-            'fillStyle': $('.color-picker-active').get(0).style.backgroundColor,
-            'fontSize': $('.font-size').val()
+            'fillStyle': $('#font-preview').get(0).style.backgroundColor,
+            'fontSize': $('.font-size').val() + 'px'
         }
         brush.setStyle(style);
+    }
+
+    function setTextArea() {
+        console.log($('#font-preview'));
+        fontarea.css({
+            'font-size': $('.font-size').val() + 'px',
+            'color': $('#font-preview').get(0).style.backgroundColor
+        });
     }
 
     //绘图工具默认的a标签跳转屏蔽
@@ -213,7 +226,7 @@ $(function() {
         $('#font-color td').removeClass('color-picker-active');
         $(this).addClass('color-picker-active');
         var bgcolor = $(this).get(0).style.backgroundColor;
-        $('#font-color .color-preview').css('background-color', bgcolor);
+        $('#font-preview').css('background-color', bgcolor);
     });
 
     //样式选择器隐藏

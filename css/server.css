@@ -219,4 +219,11 @@ body {
     max-height: 300px;
     font-family: Consolas, Courier, monospace;
     border: 1px dotted black;
+    line-height: 1.5;
+    padding: 0;
+    word-break: break-all;
+}
+
+#line-preview {
+    background-color: #000;
 }

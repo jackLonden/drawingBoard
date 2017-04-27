@@ -47,9 +47,9 @@ function CanvasTool(canvasDomId) {
         }
         //写字(根据像素计算换行和绘制)
     this.drawText = function(textarea, x, y, lineHeight) {
-            var width = textarea.clientWidth;
-            var height = textarea.clientHeight;
-            var text = textarea.value;
+            var width = textarea.width();
+            var height = textarea.height();
+            var text = textarea.val();
             var lines = [],
                 line = '',
                 len = 0;
