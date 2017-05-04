@@ -41,8 +41,20 @@ class Db{
         }
     }
     
-    function bindWhere(){
-        
+    function buildWhere(){
+        if(empty($this->where)){
+            return '';
+        }else{
+            return  implode(' ', $this->where);
+        }
+    }
+
+    function buildParam($param){
+        if(empty($param)){
+            return '';
+        }else{
+            return  implode(' ', $this->where);
+        }
     }
 
     function qy($field='*'){
