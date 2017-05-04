@@ -17,11 +17,12 @@ function load_config($file)
         	return [];
     }
 }
+
 function parseUrl(){
     $url = explode('?', $_SERVER['REQUEST_URI']);
     if(isset($url[0])){
         $resource = array_filter(explode('/', $url[0]));
-        if(count($resource)>=3){
+        if(count($resource)>=2){
             //参数解析
             $param = [];
             if(isset($url[1])){
@@ -33,11 +34,11 @@ function parseUrl(){
                     }
                 }
             }
-            return ['resource'=>$resource, 'args'=>$param];
+            return ['resource'=>array_values($resource), 'args'=>$param];
         }else{
             return -1;
         }
     }else{
-
+        return -2;
     }
 }
